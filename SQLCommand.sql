@@ -99,3 +99,54 @@ UPDATE <table_name> SET column_name = value WHERE column_1 = value_1;
 ----------------------------------------------------------------------
 update <table_name> set column_name = value;
 update employee set salary = 23000;
+update employee set salary = 50000 where emp_id in (102,104,106);
+
+-----------------------------------------------------------------------
+--7. to change specific things 
+------------------------------------------------------------------------
+update employee
+    -> set salary = case emp_name
+    -> when "john" then 23456
+    -> when "Sia" then 100000
+    -> END;
+
+
+    --example 2 to change gender after inserting gender column name 
+    alter table employee add gender varchar(5);
+     update employee set gender = case emp_id
+    -> when 101 then 'm'
+    -> when 102 then 'f'
+    -> when 103 then 'm'
+    -> when 104 then 'f'
+    -> when 105 then 'm'
+    -> when 106 then 'f'
+    -> end;
+
+----- it will change only the specified value - remaining all values will be null - becasue database is 
+----chnaged at once 
+
+---------------------------------------------------------------------
+----8. ALTER COMMAND 
+----------------------------------------------------------------------
+alter table <table_name> add <new_column> <new_datatype>;
+alter table employee add gender varchar(5);
+
+--------------------------------------------------------------------------
+---9-to update the datatype 
+---------------------------------------------------------------------------
+alter table <table_name> modify column_name new_datatype;
+
+alter table employee modify phone_numbers varchar(10);
+
+ update employee set phone_numbers = case emp_id
+    -> when 101 then 12345
+    -> when 102 then 23456
+    -> when 103 then 34567
+    -> when 104 then 45678
+    -> when 106 then 56789
+    -> when 107 then 67890
+    -> when 105 then 789901
+    -> end;
+
+
+    
