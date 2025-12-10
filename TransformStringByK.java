@@ -1,6 +1,6 @@
 //ASCII GAP FINDER - CALCULTAE THE DIFFERENCE OF ASCII Between TWO CONSECUTIVE numbers 
 import java.util.*;
-public class Solution {
+public class Solution 
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the string");
