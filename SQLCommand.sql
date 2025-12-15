@@ -174,3 +174,43 @@ alter table employee modify phone_numbers varchar(10);
 -- Quick Analogy:
 -- DELETE = Emptying the contents of a box.
 -- DROP   = Throwing the entire box away.
+---------------------------------------------------------------------------
+--------------15 DECEMBER 2025----------------------------------------------
+----------------------------------------------------------------------------
+---> To Update the table name 
+ALTER TABLE table_name ADD new_col new_type;
+
+--HOME WORK QUES--------------------
+-- Add a new column 'email' of type VARCHAR(255) to an existing table
+ALTER TABLE your_table_name
+ADD COLUMN email VARCHAR(255);
+
+-------change datatype--------------
+ALTER TABLE your_table_name
+MODIFY COLUMN phone INT;
+
+-- The following SQL command modifies the 'salary' column in the 'employee' table:
+-- 
+-- alter table employee
+--     modify column salary decimal(10,2);
+--
+-- Explanation:
+-- DECIMAL(10,2) defines the precision and scale of the column:
+--   - 10 → Precision: The total number of digits that can be stored (both before and after the decimal point).
+--   - 2 → Scale: The number of digits allowed after the decimal point.
+--
+-- So, DECIMAL(10,2) means:
+--   - Up to 10 digits in total.
+--   - Out of those, 2 digits are reserved for the fractional (decimal) part.
+--   - Example: Maximum value = 99999999.99 (8 digits before the decimal + 2 digits after).
+--
+-- This is commonly used for monetary values like salaries, where exact decimal representation is important.
+-- Add a new column 'address' after the 'name' column in the employee table
+ALTER TABLE employee
+    ADD COLUMN address VARCHAR(255) AFTER name;
+
+-- Explanation:
+-- ADD COLUMN → introduces a new column to the table.
+-- address VARCHAR(255) → creates the column named 'address' with a variable-length string data type,
+--                        allowing up to 255 characters (you can adjust the size as needed).
+-- AFTER name → ensures the new column is placed immediately after the 'name' column in the table structure.
