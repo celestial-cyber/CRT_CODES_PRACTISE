@@ -149,4 +149,28 @@ alter table employee modify phone_numbers varchar(10);
     -> end;
 
 
-    
+    -----------------------------------------------------------------
+-------DATE 15 DECEMBER 2025------------------------------------------
+-- DELETE vs DROP in SQL
+-- --------------------------------------------
+-- DELETE:
+-- - Removes rows (records) from a table.
+-- - Works at the DATA level.
+-- - Syntax: DELETE FROM table_name WHERE condition;
+-- - Table structure remains intact.
+-- - Can use WHERE to delete specific rows.
+-- - If no WHERE is given, all rows are deleted but table still exists.
+-- - Can be rolled back if inside a transaction.
+
+-- DROP:
+-- - Removes the entire database object (e.g., table, view, database).
+-- - Works at the SCHEMA level.
+-- - Syntax: DROP TABLE table_name;
+-- - Deletes both the table structure and all its data permanently.
+-- - Cannot use WHERE (no selective deletion).
+-- - Once dropped, the table no longer exists unless recreated.
+-- - Generally cannot be rolled back.
+
+-- Quick Analogy:
+-- DELETE = Emptying the contents of a box.
+-- DROP   = Throwing the entire box away.
