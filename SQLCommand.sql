@@ -214,3 +214,24 @@ ALTER TABLE employee
 -- address VARCHAR(255) → creates the column named 'address' with a variable-length string data type,
 --                        allowing up to 255 characters (you can adjust the size as needed).
 -- AFTER name → ensures the new column is placed immediately after the 'name' column in the table structure.
+-- The goal: Add a new column 'dept' at the very beginning of the 'employee' table.
+-- 
+-- Incorrect attempt:
+-- alter table employee
+--     add column dept varchar(10) first email;
+--
+-- Problem:
+--   You cannot combine FIRST with another column name.
+--   FIRST alone means "place this new column at the very start of the table."
+--
+-- ✅ Correct code using FIRST:
+ALTER TABLE employee
+    ADD COLUMN dept VARCHAR(10) FIRST;
+
+-- Explanation:
+-- ADD COLUMN dept VARCHAR(10) → Creates a new column named 'dept' that can store strings up to 10 characters.
+-- FIRST → Places the new column 'dept' as the very first column in the table structure.
+--
+-- Note:
+-- - Use AFTER <column_name> if you want to place the column after a specific existing column.
+-- - Use FIRST if you want the new column to appear at the very beginning of the table.
