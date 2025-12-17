@@ -1,104 +1,82 @@
-//#include <stdio.h>
-//#include <stdlib.h>   // for exit()
+
 
 int main() {
-    int choice, device, light = 0, fan = 0, ac = 0, tv = 0, choose;
-    float totalEnergy = 0, hours;
+    int choice;
+    float capacity = 0.0, maxCapacity = 1000.0;
+    float add, need, consume = 0.0;
+    float level, needLevel;
 
     while (1) {
-        printf("\n====== SMART HOME ELECTRICITY SYSTEM =========\n");
-        printf("1. Turn on Appliances\n");
-        printf("2. Turn off Appliances\n");
-        printf("3. View Current Status\n");
-        printf("4. Calculate Energy Usage\n");
-        printf("5. Exit\n");        // <-- Added
-        printf("Enter your choice: ");
+        printf("\n=========== SMART WATER MONITORING SYSTEM ===========");
+        printf("\n1. Add Water");
+        printf("\n2. Use Water (Consume)");
+        printf("\n3. Check Tank");
+        printf("\n4. Alerts (Overflow / Low Level)");
+        printf("\n5. Exit");
+        printf("\nEnter your choice: ");
         scanf("%d", &choice);
 
         switch (choice) {
 
-            // Turn ON
             case 1:
-                printf("\nSelect the device to turn on\n1.Light\n2.Fan\n3.AC\n4.TV\n");
-                scanf("%d", &choose);
-                if (choose == 1) {
-                    light = 1;
-                    printf("Light is turned ON\n");
-                } 
-                else if (choose == 2) {
-                    fan = 1;
-                    printf("Fan is turned ON\n");
-                } 
-                else if (choose == 3) {
-                    ac = 1;
-                    printf("AC is turned ON\n");
-                } 
-                else if (choose == 4) {
-                    tv = 1;
-                    printf("TV is turned ON\n");
-                } 
-                else {
-                    printf("Invalid device\n");
+                printf("Enter litres to add: ");
+                scanf("%f", &add);
+
+                if (capacity + add > maxCapacity) {
+                    printf("Tank Overflow");
+                } else {
+                    capacity += add;
+                    level = (capacity / maxCapacity) * 100;
+                    printf("Water added: %.2f", add);
+                    printf("\nCurrent water: %.2f", capacity);
+                    printf("\nTank level: %.2f%%", level);
                 }
                 break;
 
-            // Turn OFF
             case 2:
-                printf("\nEnter the device to turn off:\n1.Light\n2.Fan\n3.AC\n4.TV\n");
-                scanf("%d", &device);
+                printf("Enter litres to consume: ");
+                scanf("%f", &need);
 
-                if (device == 1) {
-                    if (light) { light = 0; printf("Light is turned OFF\n"); }
-                    else printf("Light is already OFF\n");
-                }
-                else if (device == 2) {
-                    if (fan) { fan = 0; printf("Fan is turned OFF\n"); }
-                    else printf("Fan is already OFF\n");
-                }
-                else if (device == 3) {
-                    if (ac) { ac = 0; printf("AC is turned OFF\n"); }
-                    else printf("AC is already OFF\n");
-                }
-                else if (device == 4) {
-                    if (tv) { tv = 0; printf("TV is turned OFF\n"); }
-                    else printf("TV is already OFF\n");
-                }
-                else {
-                    printf("Invalid option\n");
+                if (need > capacity) {
+                    printf("Insufficient water");
+                } else {
+                    capacity -= need;
+                    consume += need;
+                    level = (capacity / maxCapacity) * 100;
+                    printf("Water consumed: %.2f", need);
+                    printf("\nRemaining water: %.2f", capacity);
+                    printf("\nTank level: %.2f%%", level);
                 }
                 break;
 
-            // View Status
             case 3:
-                printf("\n======== Appliances Status ==========\n");
-                printf("Light : %s\n", light ? "ON" : "OFF");
-                printf("Fan   : %s\n", fan ? "ON" : "OFF");
-                printf("AC    : %s\n", ac ? "ON" : "OFF");
-                printf("TV    : %s\n", tv ? "ON" : "OFF");
+                level = (capacity / maxCapacity) * 100;
+                printf("Current water: %.2f", capacity);
+                printf("\nTank level: %.2f%%", level);
+                printf("\nTotal water consumed: %.2f", consume);
                 break;
 
-            // Energy usage
             case 4:
-                printf("Enter the hours the devices were running: ");
-                scanf("%f", &hours);
+                printf("Enter alert level (percentage): ");
+                scanf("%f", &needLevel);
 
-                if (light) totalEnergy += (10 * hours) / 1000.0;
-                if (fan) totalEnergy += (50 * hours) / 1000.0;
-                if (ac) totalEnergy += (1500 * hours) / 1000.0;
-                if (tv) totalEnergy += (100 * hours) / 1000.0;
+                level = (capacity / maxCapacity) * 100;
 
-                printf("Total Energy used: %.2f kWh\n", totalEnergy);
+                if (level >= needLevel) {
+                    printf("Overflow Alert");
+                } else if (level <= needLevel) {
+                    printf("Low Level Alert");
+                } else {
+                    printf("Normal Level");
+                }
                 break;
 
-            // EXIT PROGRAM
             case 5:
-                printf("\nExiting Smart Home System... Goodbye!\n");
-                exit(0);      // <--- EXIT PROGRAM
+                printf("Thank you");
+                return 0;
 
             default:
-                printf("Invalid choice\n");
+                printf("Invalid option");
         }
     }
-
-    return 0;
 }
