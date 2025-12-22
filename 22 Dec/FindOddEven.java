@@ -34,7 +34,6 @@ class FindOddEven {
             }
             System.out.println();
         }
-
         // Print odd numbers
         System.out.print("Odd numbers: ");
         if (od == 0) {
