@@ -227,6 +227,10 @@ ALTER TABLE employee
 -- ✅ Correct code using FIRST:
 ALTER TABLE employee
     ADD COLUMN dept VARCHAR(10) FIRST;
+   
+
+   ----do not use "." in the name it will show error like to add sno use sno not sno.
+
 
 -- Explanation:
 -- ADD COLUMN dept VARCHAR(10) → Creates a new column named 'dept' that can store strings up to 10 characters.
@@ -235,3 +239,29 @@ ALTER TABLE employee
 -- Note:
 -- - Use AFTER <column_name> if you want to place the column after a specific existing column.
 -- - Use FIRST if you want the new column to appear at the very beginning of the table.
+------------------------------------------------------------------------------------------------------------
+--- DATE 22 DECEMBER 2025 -----------------------------------------------------
+---------------------------------------------------------------------------------------------------------
+--- If we want to modify a place of the column 
+--- we can use - 
+Alter table empployee
+modify column sno int first 
+
+
+mysql>
+mysql> ALTER TABLE employee
+    ->     MODIFY emp_id INT NOT NULL AUTO_INCREMENT;
+Query OK, 7 rows affected (0.33 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO employee (sno) VALUES (1),(2),(3),(4),(5),(6),(7);
+Query OK, 7 rows affected (0.03 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+--------------------------------------------------------------------------
+---to rename the column name 
+---------------------------------------
+alter table <table_name> rename column <existing_Col> to <new_column>;
+
+ alter table employee_details
+    -> rename column phone_number to contact;
