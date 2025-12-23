@@ -265,3 +265,19 @@ alter table <table_name> rename column <existing_Col> to <new_column>;
 
  alter table employee_details
     -> rename column phone_number to contact;
+
+------rename tableName
+alter table <table_name> rename table <table_name> to <new_name>
+
+RENAME TABLE employee_details TO emp_details;
+
+ALTER TABLE employee_details RENAME TO emp_details;
+
+-------delete - to remove a specific row--------------------------
+delete from <table_name> where condtion;
+
+example delete from <table_name> where column_name = value1;
+
+
+delete from employee_details
+    -> where last_name is null; ---- it will remove total column where row value will be null
