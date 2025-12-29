@@ -281,3 +281,7 @@ example delete from <table_name> where column_name = value1;
 
 delete from employee_details
     -> where last_name is null; ---- it will remove total column where row value will be null
+
+
+--------------------------------------------------------------------------------------------------------
+-------29th December 2025----------------------------------------------------
