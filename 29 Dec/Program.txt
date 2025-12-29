@@ -1,0 +1,24 @@
+1. count of all digits 
+2. sum of all the numbers 
+3. sum of all digits until i get a single digit number 
+
+
+
+n= 12345 
+int c=0
+while(n!=0){
+    c++;
+    n=n/10;
+    //logic for logarithm - in how many times the number gets divided by 10 to obtain 0 - 
+
+}
+
+also int n = 12345 
+so instead of using while loops for counting the numbers we can use logarithm of base 10 
+int c = log10(n) + 1; //5
+
+if i have 10 digits number then the log of 10 digits number will be 9 same goes with 5 digit number - we will get 4 as answer
+
+
+
+we can't perform log on zero and negative numbers 
