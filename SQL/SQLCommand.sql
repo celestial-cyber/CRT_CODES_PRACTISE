@@ -284,4 +284,31 @@ delete from employee_details
 
 
 --------------------------------------------------------------------------------------------------------
--------29th December 2025----------------------------------------------------
+-------29th December 2025 Monday ---------------------------------------------------
+--to change the column name - syntax 
+alter table <tablename> change <existing_col_name> <new_col_name> new_datatype;
+mysql> alter table employee
+    -> change emp_name empname varchar(20);
+----to delete a specific row with a value 
+mysql> delete from employee where emp_id = 107;
+Query OK, 1 row affected (0.01 sec)
+
+
+----to remove null values 
+delet from table_name 
+where column_name is null;
+
+
+-------to delete all the rows at once-----------
+delete from <table_name>;
+
+-----------------to remove a column if to remove with "either" "or" condition
+syntax - delete from table_name where column_name in (value1 , value2);
+DELETE FROM employee
+WHERE empname IN ('Priya', 'Kiran');
+
+-------------------------------to remove databases-----------------------------------------------------
+drop database <database_name>
+drop table <table_name>
+-------------------------------------------------------------------------------------------------------
+
