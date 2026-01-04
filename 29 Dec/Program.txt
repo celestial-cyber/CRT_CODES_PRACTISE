@@ -22,3 +22,6 @@ if i have 10 digits number then the log of 10 digits number will be 9 same goes 
 
 
 we can't perform log on zero and negative numbers 
+
+
+https://www.hackerrank.com/before-advance-sorting
