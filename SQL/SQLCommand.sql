@@ -312,3 +312,34 @@ drop database <database_name>
 drop table <table_name>
 -------------------------------------------------------------------------------------------------------
 
+---------------DATE 05TH JANUUARY 2026-------------------------------------------------------
+--to remove a column using drop
+
+alter table <tablename> drop column <column_name>;
+--anything with drop will remve everything 
+
+
+--constraints 
+--1.primary key- should be unique - should not be null and the primary key of the table will be used only once or only one column 
+--one primary key per the table 
+
+-- Create student table with primary key
+CREATE TABLE student (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+
+-- Insert some values into student table
+INSERT INTO student (id, name, age) VALUES (1, 'Alice', 20);
+INSERT INTO student (id, name, age) VALUES (2, 'Bob', 21);
+INSERT INTO student (id, name, age) VALUES (3, 'Charlie', 22);
+
+-------UNIQUE CONSTRAINTS------------------
+CREATE TABLE Emails (
+    email VARCHAR(255) UNIQUE,
+    name VARCHAR(100)
+);
+
+
+
