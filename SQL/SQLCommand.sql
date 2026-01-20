@@ -9,6 +9,28 @@ select * from <tablename> where name like "j%" or "%j";
 SELECT * FROM Students;
 
 
+-----------------
+DELETE FROM Employees
+WHERE salary < (SELECT AVG(salary) FROM Employees);
+
+
+DELETE FROM emp_details
+WHERE emp_salary < (
+    SELECT avg_salary
+    FROM (
+        SELECT AVG(emp_salary) AS avg_salary
+        FROM emp_details
+    ) AS t
+);
+
+
+
+
+ALTER TABLE students
+DROP COLUMN department;
+
+
+
 ----------------------------------------------------
 -- 2. Display RollNo and Name of all students.
 ----------------------------------------------------
@@ -275,7 +297,6 @@ ALTER TABLE employee_details RENAME TO emp_details;
 
 -------delete - to remove a specific row--------------------------
 delete from <table_name> where condtion;
-
 example delete from <table_name> where column_name = value1;
 
 
