@@ -34,14 +34,20 @@ int main(){
                     printf("No classes conducted yet.\n");
                 } else {
                     attendance = (attended * 100) / total;  
-                    printf("Attendance = %d%%\n", attendance);
+                    printf("Attendance = %d\n", attendance);
                 }
                 break;
 
             case 4: 
                 if(total == 0){
                     printf("No classes conducted yet.\n");
-                } else {
+                } 
+                else if (attended==0){
+                    printf("Attendance is not marked");
+
+                }                
+                
+                else {
                     attendance = (attended * 100) / total;
                     printf("Attendance Status: ");
                     if (attendance < 75){
