@@ -42,7 +42,11 @@ int main(){
                      printf("\nEnter number of days used: ");
                      scanf("%d", &days);
 
-                     if(returns > burrow){
+                     if (burrow=0){
+                        printf("No books to return");
+                     }
+
+                     else if(returns > burrow){
                         printf("\nYou cannot return more books than borrowed");
                      }
                      else{
