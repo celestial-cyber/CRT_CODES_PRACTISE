@@ -19,3 +19,9 @@ class prgram1{
     }
 
 }
+
+
+//  for(int i = 1 ;i <=limit;i++){
+            //System.out.print(i);
+            // limit--;
+        //}
